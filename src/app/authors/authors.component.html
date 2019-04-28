@@ -1,0 +1,53 @@
+
+<h2> {{ authors.length}}  authors </h2>
+
+<img src='{{ imageUrl }}' height='200px' width='200px' />
+<!-- <img src[] = "titleImage" /> -->
+
+<ul>
+  <li *ngFor="let author of authors"> 
+    {{ author }} 
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let family of familyMembers"> {{ family }} </li>
+</ul>
+
+<table style='border:1px solid #000;'>
+  <tr>
+    <td [attr.colspan]='colSpan'> Test Here </td>
+  </tr>
+</table>
+<br />
+<button class="btn btn-primary" > Save </button> <br /><br />
+ 
+<button [class.active] ="isActive"> Is Active </button> <br /><br />
+
+<button [style.backgroundColor]="isActive ? '#71a3ff' : 'white'"> Style Background </button> <br /><br />
+
+<section (click)="sectionClick($event)">
+  <div (click)="onDivClick($event)">
+    <button (click)="onSave($event)" > OnSave Click</button>
+  </div>
+</section>
+<div>
+  <!-- <input (keyup)="onKeyUp($event)" /> -->
+  <input (keyup.enter)="onKeyUp()" /> <br /> <br />
+    
+  <input #address (keyup.enter)="onKeyUpNew(address.value)" /> <br /><br />
+
+  <!-- NNew way of codeing same on Enter geeting the text box values  -->
+
+  <!-- <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUpBind()" /> /// below line are update code  -->
+  <input [(ngModel)] = "email" (keyup.enter)= "onKeyUpBind()" />  <br /><br />
+  
+  <input [(ngModel)]="name" #ctrl="ngModel" required  >
+ 
+    <p>Value: {{ name }}</p>
+
+    <p>Valid: {{ ctrl.valid }}</p>
+    
+    <button (click)="setValue()">Set value</button>
+
+</div>
+
