@@ -1,11 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
   <div style="text-align:center;font-size:3rem;">
-    Welcome to {{ title }}!
+    Welcome to {{ title1 }}!
   </div>
-
   <h3 style="color:blueviolet">Favorite Component called here</h3>
-  <favorite> </favorite>
+  <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite>
   
   <authors> </authors>
 

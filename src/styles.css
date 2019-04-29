@@ -8,3 +8,13 @@ body {
 div {
     padding: 15px 0px;
 }
+.red {
+    color: red;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.green {
+    color: green;
+    cursor: pointer;
+    font-size: 2rem;
+}
