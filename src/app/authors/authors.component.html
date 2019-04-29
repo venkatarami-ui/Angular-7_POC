@@ -1,3 +1,22 @@
+<hr />
+
+
+
+<hr />
+
+<h3>Custom Pipe Test Summery example</h3>
+
+<P class="jumbotron mt-3"> {{ text | summary: 30 }} </P>
+
+<hr />
+
+<h2>{{ courses.title | uppercase  | lowercase }} </h2> <br />
+<h2>{{ courses.Rating | number: '2.1-1'}} </h2> <br />
+<h2>{{ courses.Student | number }} </h2> <br />
+<h2>{{ courses.price | currency: 'INR': true: '3.2-2' }} </h2> <br />
+<h2>{{ courses.releseDate | date:'shortDate' }} </h2> <br />
+
+<hr />
 
 <h2> {{ authors.length}}  authors </h2>
 
@@ -13,18 +32,24 @@
   <li *ngFor="let family of familyMembers"> {{ family }} </li>
 </ul>
 
+<hr />
+
 <table style='border:1px solid #000;'>
   <tr>
     <td [attr.colspan]='colSpan'> Test Here </td>
   </tr>
 </table>
 <br />
+
+<hr />
+
 <button class="btn btn-primary" > Save </button> <br /><br />
  
 <button [class.active] ="isActive"> Is Active </button> <br /><br />
 
 <button [style.backgroundColor]="isActive ? '#71a3ff' : 'white'"> Style Background </button> <br /><br />
 
+<hr />
 <section (click)="sectionClick($event)">
   <div (click)="onDivClick($event)">
     <button (click)="onSave($event)" > OnSave Click</button>
@@ -41,6 +66,8 @@
   <!-- <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUpBind()" /> /// below line are update code  -->
   <input [(ngModel)] = "email" (keyup.enter)= "onKeyUpBind()" />  <br /><br />
   
+  <hr />
+
   <input [(ngModel)]="name" #ctrl="ngModel" required  >
  
     <p>Value: {{ name }}</p>
@@ -48,6 +75,8 @@
     <p>Valid: {{ ctrl.valid }}</p>
     
     <button (click)="setValue()">Set value</button>
+
+    <hr />
 
 </div>
 

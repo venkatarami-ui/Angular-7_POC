@@ -9,12 +9,16 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./authors.component.css']
 })
 export class AuthorsComponent implements OnInit {
-
-
   constructor(service: AuthorsService) {
     this.authors = service.getAuthors();
     this.familyMembers = service.getfamilyMembers();
   }
+// Custom Pipes are here
+
+// tslint:disable-next-line: max-line-length
+text = `Pipes Transforms a number to a currency string, formatted according to locale rules that determine group sizing and separator, decimal-point character, and other locale-specific configurations.`;
+
+
   titleImage = ' Tetsing App ';
   // tslint:disable-next-line: max-line-length
   imageUrl = 'https://ej2.syncfusion.com/products/typescript/avatar/avatarimg/pic.png';
@@ -24,8 +28,16 @@ export class AuthorsComponent implements OnInit {
   familyMembers: string[];
   isActive = true;
   address;
-  name: string = '';
+  name = '';
   email = 'me@sample.com';
+
+  courses = {
+    title: 'Angular Pipes started here',
+    Rating: 4.9745,
+    Student: 30123,
+    price: 190.95,
+    releseDate: new Date (2012, 3, 12)
+  }
   setValue(){
     this.name = 'Sujith';
   }
