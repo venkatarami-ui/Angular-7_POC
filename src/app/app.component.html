@@ -1,4 +1,91 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
+<button (click)="LoadProducts()">Load DataList </button>
+
+<ul class="nav">
+    <li *ngFor="let product of products; trackBy:takeProducts">
+      {{ product.name }} 
+    </li>
+  </ul>
+
+<br />
+<hr />
+
+<div class="component-name">
+    <ul>
+      <li *ngFor="let employe of projectes; index as i">
+        {{ i }} - {{ employe.name }}
+
+        <button class="btn btn-warning" (click)="onChange(employe)" style="margin: 5px;">Change</button>
+      </li>
+    </ul>
+  </div>
+  <br /> 
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"># Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Time Duration</th>
+          </tr>
+        </thead>
+        <tbody style="text-transform: capitalize">
+          <tr *ngFor="let employe of projectes; index as i">
+              <td>
+                  {{ i }} 
+              </td>
+              <td>
+                  {{ i }} - {{ employe.name }}
+              </td>
+              <td>
+                  {{ i }} - {{ employe.duration }}
+                </td>
+            </tr>
+
+      </tbody>
+    </table>
+    <h3> Table view Sample data </h3>
+
+    <ul class="nav">
+        <li *ngFor="let employe of projectes; even as isEven; index as localVar">
+          {{ localVar }} - {{ employe.name }} 
+          <span *ngIf="isEven">(even)</span>
+        </li>
+      </ul>
+
+<br /> 
+<button class="btn btn-primary" (click)="onAdd()">Add</button>
+<br /> <br />
+<table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">onRemove</th>
+        <th scope="col">onChange</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataList">
+          <td>
+            {{item.FirstName}} 
+          </td>
+          <td>
+            {{item.LastName}}
+          </td>
+          <td > 
+            <button (click)="onRemove(item)">Remove</button>
+          </td>
+          <td > 
+            <button (click)="onChange(item)">Change</button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
 <div class="component-name">NG Switch example</div>
 <br /> 
 <div class="nav nav-pills">
@@ -13,7 +100,7 @@
 </div>
 <br />
 <br />
-<div class="component-name">Courses List Showing using *Ng-IF </div>
+<div class="component-name">Courses List Showing using *Ng-IF </div><br /> 
 <div *ngIf="courses.length > 0; then coursesList else noCourses "> </div>
 
 <ng-template #coursesList> 
@@ -23,18 +110,19 @@
 <ng-template #noCourses>
   No courses yet...
 </ng-template>
-
+<br /> 
 <div class="component-name">Same Courses List Showing using property [property]="expression"  hidden method  ONly this way we see  all html elements will show in DOM !! by Using hidden property!!! </div>
-
+<br /> 
 <div [hidden]="courses.length == 0">
   List of Courses using [property]="expression" binding
+  
 </div>
 <div [hidden]="courses.length > 0">
     No courses yet using [property]="expression" binding...
 </div>
 
 <h3 class="component-name">Like Component called here</h3>
-  
+<br /> 
 <like
   [likesCount]="tweet.likesCount"
   
