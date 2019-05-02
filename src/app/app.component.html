@@ -1,11 +1,66 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="component-name">NG Switch example</div>
+<br /> 
+<div class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map View</a> </li>
+  <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'">List View </a> </li>
+</div>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content here ...</div>
+  <div *ngSwitchCase="'list'">List View Content here ...</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+<br />
+<br />
+<div class="component-name">Courses List Showing using *Ng-IF </div>
+<div *ngIf="courses.length > 0; then coursesList else noCourses "> </div>
+
+<ng-template #coursesList> 
+  List of courses using **ngIf="expression"...
+</ng-template>
+
+<ng-template #noCourses>
+  No courses yet...
+</ng-template>
+
+<div class="component-name">Same Courses List Showing using property [property]="expression"  hidden method  ONly this way we see  all html elements will show in DOM !! by Using hidden property!!! </div>
+
+<div [hidden]="courses.length == 0">
+  List of Courses using [property]="expression" binding
+</div>
+<div [hidden]="courses.length > 0">
+    No courses yet using [property]="expression" binding...
+</div>
+
+<h3 class="component-name">Like Component called here</h3>
+  
+<like
+  [likesCount]="tweet.likesCount"
+  
+>
+</like>
+<!-- [isActive]="tweet.isLiked"] -->
+
 <div>
   <div style="text-align:center;font-size:3rem;">
     Welcome to {{ title1 }}!
   </div>
-  <h3 style="color:blueviolet">Favorite Component called here</h3>
-  <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite>
+  <h3 class="component-name">Favorite Component called here</h3>
+  <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
   
+  <hr />
+
+  <h3 class="component-name">Panel Component called here</h3>
+
+  <bootstrap-panel> 
+    <div class="heading">Heading</div>
+    <div class="body">
+      <h2>Body</h2>
+      <p>Some Content ...</p>
+    </div>
+  </bootstrap-panel>
+
   <authors> </authors>
 
 </div>
