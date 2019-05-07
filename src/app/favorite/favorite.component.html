@@ -12,6 +12,18 @@
 > 
 <!-- <button class="btn btn-primary">Change Color </button> -->
 </span>
+<br />
+<h2> Other way of using Selecting the facorite Icons using <small>" ngClass "</small> </h2>
+<span class="icon glyphicon"
+  [ngClass]="{
+    'glyphicon-star': !isSelected,
+    'glyphicon-star-empty': isSelected
+  }"
+  (click)="onCLick()"
+> 
+
+</span>
+
 <!-- 
 <p   
 [class.red]= 'isSelected'

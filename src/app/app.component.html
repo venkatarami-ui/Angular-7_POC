@@ -1,12 +1,61 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="component-name">signup-form Component example</div>
 
-<button (click)="LoadProducts()">Load DataList </button>
+<signup-form> </signup-form>
 
-<ul class="nav">
-    <li *ngFor="let product of products; trackBy:takeProducts">
-      {{ product.name }} 
-    </li>
-  </ul>
+<br />
+<hr />
+
+
+<div class="component-name">new-course-form Component example</div>
+<new-course-form> </new-course-form>
+
+<div class="component-name">Zippy Component with toggle accordion example</div>
+<br />
+<zippy title="Shipping Details"> 
+  Shipping details Content
+</zippy>
+
+<hr />
+
+<h3> 74. Creating Custom Directives </h3>
+
+<input type="text" [appInputFormat]="'uppercase'" />
+
+<br />
+<hr />
+<h3 class="panel">73. Safe Traversal Operator  </h3>
+<span *ngIf="task.assignee"> {{ task.assignee.name }} </span>
+<span > {{ task.assignee?.name }} </span> <!-- 73. Safe Traversal Operator -->
+
+<h3 class="panel">The Leading Asterisk</h3>
+
+<br />
+<button class="btn btn-warning" (click)="LoadProducts()">Load DataList </button>
+
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"># Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Time Duration</th>
+        </tr>
+      </thead>
+      <tbody style="text-transform: capitalize">
+        <tr *ngFor="let product of products; trackBy:takeProducts; index as i">
+            <td>
+                {{ i }} 
+            </td>
+            <td>
+                {{ i }} - {{ product.name }}
+            </td>
+            <td>
+                {{ i }} - {{ product.duration }}
+              </td>
+          </tr>
+
+    </tbody>
+  </table>
 
 <br />
 <hr />
@@ -101,6 +150,25 @@
 <br />
 <br />
 <div class="component-name">Courses List Showing using *Ng-IF </div><br /> 
+
+<div *ngIf="courses.length > 0; then coursesList else noCourses "> </div>
+
+<ng-template [ngIf]="courses.length > 0"> 
+  <div>
+    List of courses 
+</div>
+</ng-template>
+
+<ng-template [ngIf]="!(courses.length > 0)"> 
+  <div>
+    No courses
+  </div>
+</ng-template>
+
+<br />
+<br />
+
+
 <div *ngIf="courses.length > 0; then coursesList else noCourses "> </div>
 
 <ng-template #coursesList> 
